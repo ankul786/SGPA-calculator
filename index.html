@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SGPA Calculator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-blob b1" aria-hidden="true"></div>
+  <div class="bg-blob b2" aria-hidden="true"></div>
+
+  <main>
+    <header>
+      <div class="logo-mark" aria-hidden="true">Σ</div>
+      <div class="header-text">
+        <h1>SGPA Calculator</h1>
+        <p class="subtitle">Semester Grade Point Average</p>
+      </div>
+    </header>
+
+    <section class="grade-legend" aria-label="Grade point reference">
+      <h2 class="sr-only">Grade Points Reference</h2>
+      <div class="legend-scroll">
+        <div class="legend-item"><span class="grade-pill gp10">A+</span><span class="pts">10</span></div>
+        <div class="legend-item"><span class="grade-pill gp9">A</span><span class="pts">9</span></div>
+        <div class="legend-item"><span class="grade-pill gp8">B+</span><span class="pts">8</span></div>
+        <div class="legend-item"><span class="grade-pill gp7">B</span><span class="pts">7</span></div>
+        <div class="legend-item"><span class="grade-pill gp6">C+</span><span class="pts">6</span></div>
+        <div class="legend-item"><span class="grade-pill gp5">C</span><span class="pts">5</span></div>
+        <div class="legend-item"><span class="grade-pill gp4">D</span><span class="pts">4</span></div>
+        <div class="legend-item"><span class="grade-pill gp0">E/F</span><span class="pts">0</span></div>
+      </div>
+    </section>
+
+    <section class="card" aria-label="Subject entry">
+      <div class="table-head" aria-hidden="true">
+        <span class="col-sub">Subject</span>
+        <span class="col-cr">Credits</span>
+        <span class="col-gr">Grade</span>
+        <span class="col-del"></span>
+      </div>
+
+      <div id="subject-list" role="list" aria-label="Subjects"></div>
+
+      <div class="add-row">
+        <button id="add-btn" class="add-btn" aria-label="Add a subject">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+          Add Subject
+        </button>
+      </div>
+    </section>
+
+    <div class="actions">
+      <button id="calc-btn" class="calc-btn">Calculate SGPA</button>
+      <button id="reset-btn" class="reset-btn" aria-label="Reset all subjects">Reset</button>
+    </div>
+
+    <div id="result-area" class="result-area hidden" aria-live="polite" aria-atomic="true">
+      <div class="result-card">
+        <div class="result-label">Your SGPA</div>
+        <div class="result-value" id="sgpa-display">—</div>
+        <div class="result-bar-wrap" aria-hidden="true">
+          <div class="result-bar-track">
+            <div class="result-bar-fill" id="result-bar"></div>
+          </div>
+          <div class="result-bar-labels">
+            <span>0</span><span>5</span><span>10</span>
+          </div>
+        </div>
+        <div class="result-meta" id="result-meta"></div>
+        <div class="result-remark" id="result-remark"></div>
+      </div>
+    </div>
+
+    <p id="error-msg" class="error-msg hidden" role="alert"></p>
+
+  </main>
+
+  <footer>
+    <span>Built for students &middot; Free to use</span>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
